@@ -3,9 +3,11 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
-import Chrome from '../components/chrome';
 import { Theme } from '../components/theme';
 import { globalStyes } from '../styles/global.styles';
+import Rho from '../components/rho';
+
+import 'katex/dist/katex.min.css';
 
 /**
  * Next.js uses the App component to initialize pages. You can override it
@@ -15,20 +17,20 @@ import { globalStyes } from '../styles/global.styles';
  * @see https://nextjs.org/docs/advanced-features/custom-app
  */
 const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
-  <>
-    <Head>
-      {/* You can override this in other pages - see index.tsx for an example */}
-      <title>Next.js EUI Starter</title>
-    </Head>
-    <Global styles={globalStyes} />
-    <Theme>
-      <Chrome>
-        <EuiErrorBoundary>
-          <Component {...pageProps} />
-        </EuiErrorBoundary>
-      </Chrome>
-    </Theme>
-  </>
+    <>
+        <Head>
+            {/* You can override this in other pages - see index.tsx for an example */}
+            <title>Next.js EUI Starter</title>
+        </Head>
+        <Global styles={globalStyes} />
+        <Theme>
+            <Rho>
+                <EuiErrorBoundary>
+                    <Component {...pageProps} />
+                </EuiErrorBoundary>
+            </Rho>
+        </Theme>
+    </>
 );
 
 export default EuiApp;
