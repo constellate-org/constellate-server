@@ -7,42 +7,44 @@ import HomeWhy from '../components/starter/home_why';
 import { Constellation } from '../lib/constellate';
 
 function Index({ constellation }) {
-    return (
-        <>
-            <Head>
-                <title>{constellation.title}</title>
-            </Head>
+  return (
+    <>
+      <Head>
+        <title>{constellation.title}</title>
+      </Head>
 
-            <Wrapper>
-                <HomeHero />
+      <Wrapper>
+        <HomeHero />
 
-                <EuiSpacer size="xxl" />
-                <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
 
-                <HomeWhy />
+        <HomeWhy />
 
-                <EuiSpacer size="xxl" />
-                <EuiSpacer size="xxl" />
-                <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
 
-                <HomeTemplates />
+        <HomeTemplates />
 
-                <EuiSpacer size="xxl" />
-                <EuiSpacer size="xxl" />
-            </Wrapper>
-        </>
-    );
-};
+        <EuiSpacer size="xxl" />
+        <EuiSpacer size="xxl" />
+      </Wrapper>
+    </>
+  );
+}
 
 export default Index;
 
 export async function getStaticProps() {
-    const res = await fetch('https://gist.githubusercontent.com/nicholas-miklaucic/3daf5c1f4000aeead83f6415b5e5b29f/raw/bad5f34aeb8d12a1ff0e027a2dbb9c04eebba09a/constellation.json');
-    const constellation: Constellation = await res.json()
+  const res = await fetch(
+    'https://gist.githubusercontent.com/nicholas-miklaucic/3daf5c1f4000aeead83f6415b5e5b29f/raw/bad5f34aeb8d12a1ff0e027a2dbb9c04eebba09a/constellation.json'
+  );
+  const constellation: Constellation = await res.json();
 
-    return {
-        props: {
-            constellation,
-        },
-    }
+  return {
+    props: {
+      constellation,
+    },
+  };
 }

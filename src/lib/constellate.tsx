@@ -1,36 +1,36 @@
 export type MarkdownMatplotlib = {
   kind: 'markdown_matplotlib';
-  star_id: String;
-  markdown: String;
-  matplotlib: String;
+  star_id: string;
+  markdown: string;
+  matplotlib: string;
 };
 
 export type MarkdownLatex = {
   kind: 'markdown_latex';
-  star_id: String;
-  markdown: String;
-  latex: String;
+  star_id: string;
+  markdown: string;
+  latex: string;
 };
 
 export type MarkdownPanel = {
   kind: 'markdown_panel';
-  star_id: String;
-  markdown: String;
-  panel: String;
+  star_id: string;
+  markdown: string;
+  panel: string;
 };
 
 export type PureMarkdown = {
   kind: 'pure_markdown';
-  star_id: String;
-  markdown: String;
+  star_id: string;
+  markdown: string;
 };
 
 export type MarkdownCode = {
   kind: 'markdown_code';
-  star_id: String;
-  markdown: String;
-  code: String;
-  output: String | undefined;
+  star_id: string;
+  markdown: string;
+  code: string;
+  output: string | undefined;
 };
 
 export type Star =
@@ -41,11 +41,11 @@ export type Star =
   | MarkdownCode;
 
 export type Constellation = {
-  setup: Array<String>;
+  setup: Array<string>;
   stars: Array<Star>;
   breadcrumbs: Array<Array<number>>;
-  title: String;
-  star_titles: Array<String>;
+  title: string;
+  star_titles: Array<string>;
 };
 
 export function hasImgPanel(star: Star) {

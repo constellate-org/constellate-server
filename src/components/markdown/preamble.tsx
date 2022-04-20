@@ -34,8 +34,8 @@ const macrosKatex = `
 const macros = {};
 
 KaTeX.renderToString(macrosKatex, {
-    globalGroup: true,
-    macros: macros
+  globalGroup: true,
+  macros: macros,
 });
 
 export default macros;

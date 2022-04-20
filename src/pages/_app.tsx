@@ -17,20 +17,20 @@ import 'katex/dist/katex.min.css';
  * @see https://nextjs.org/docs/advanced-features/custom-app
  */
 const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
-    <>
-        <Head>
-            {/* You can override this in other pages - see index.tsx for an example */}
-            <title>Next.js EUI Starter</title>
-        </Head>
-        <Global styles={globalStyes} />
-        <Theme>
-            <Rho>
-                <EuiErrorBoundary>
-                    <Component {...pageProps} />
-                </EuiErrorBoundary>
-            </Rho>
-        </Theme>
-    </>
+  <>
+    <Head>
+      {/* You can override this in other pages - see index.tsx for an example */}
+      <title>Next.js EUI Starter</title>
+    </Head>
+    <Global styles={globalStyes} />
+    <Theme>
+      <Rho>
+        <EuiErrorBoundary>
+          <Component {...pageProps} />
+        </EuiErrorBoundary>
+      </Rho>
+    </Theme>
+  </>
 );
 
 export default EuiApp;
