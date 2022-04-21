@@ -37,7 +37,7 @@ export default function PanelContent(props: PanelContentProps) {
     case 'markdown_matplotlib':
       return (
         <ImagePanel
-          filename={`/images/${props.star.star_id}_{}.png`}
+          url={props.star[props.isDark ? 'dark' : 'light']}
           code={props.star.matplotlib}
         />
       );

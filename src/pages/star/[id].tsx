@@ -4,6 +4,7 @@ import PanelContent from '../../components/panels/panel_content';
 import { useEuiTheme } from '@elastic/eui';
 import { useRouter } from 'next/router';
 import Wrapper from '../../components/starter/wrapper';
+import data from '../../../public/mcmc.constellate.json';
 
 function StarPage({ constellation }) {
   const { euiTheme, colorMode } = useEuiTheme();
@@ -37,10 +38,11 @@ function StarPage({ constellation }) {
 export default StarPage;
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    'https://gist.githubusercontent.com/nicholas-miklaucic/3daf5c1f4000aeead83f6415b5e5b29f/raw/bad5f34aeb8d12a1ff0e027a2dbb9c04eebba09a/constellation.json'
-  );
-  const constellation: Constellation = await res.json();
+  /* const res = await fetch(
+   *   'file:///home/nicholas/programs/constellations/metropolis-hastings/mcmc.constellate.json'
+   * );
+   * const constellation: Constellation = await res.json(); */
+  const constellation = data;
 
   const paths = [];
   constellation.stars.forEach((s, i) => {
@@ -58,10 +60,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(
-    'https://gist.githubusercontent.com/nicholas-miklaucic/3daf5c1f4000aeead83f6415b5e5b29f/raw/bad5f34aeb8d12a1ff0e027a2dbb9c04eebba09a/constellation.json'
-  );
-  const constellation: Constellation = await res.json();
+  /* const res = await fetch(
+   *   'file:///home/nicholas/programs/constellations/metropolis-hastings/mcmc.constellate.json'
+   * );
+   * const constellation: Constellation = await res.json();  */
+  const constellation = data;
 
   return {
     props: {

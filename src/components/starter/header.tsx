@@ -11,7 +11,6 @@ import {
 import { imageLoader } from '../../lib/loader';
 import ThemeSwitcher from './theme_switcher';
 import { headerStyles } from './header.styles';
-import Logo from '../../../public/images/logo-eui.svg';
 
 const Header = () => {
   const { euiTheme } = useEuiTheme();
@@ -30,7 +29,7 @@ const Header = () => {
                 <Image
                   width={24}
                   height={24}
-                  src={Logo}
+                  src={'fake'}
                   alt=""
                   loader={imageLoader}
                 />
