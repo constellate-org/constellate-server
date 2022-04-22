@@ -27,9 +27,17 @@ const Rho: FunctionComponent = ({ children }) => {
         : null,
   });
 
+  const overrides = {
+    font: {
+      family: "'myriad-pro', serif",
+      familyCode: "'Cascadia Code PL', Menlo, monospace",
+    },
+  };
+
   return (
     <EuiProvider
       colorMode={colorMode as EuiThemeColorMode}
+      modify={overrides}
       cache={emotionCache}>
       {children}
     </EuiProvider>

@@ -24,13 +24,13 @@ const Header = () => {
       sections={[
         {
           items: [
-            <Link key="logo-eui" href="/" passHref>
+            <Link key="logo" href="/" passHref>
               <a css={styles.logo}>
                 <Image
                   width={24}
                   height={24}
-                  src={'fake'}
-                  alt=""
+                  src="/pollardsrho.svg"
+                  alt="rho logo"
                   loader={imageLoader}
                 />
                 <EuiTitle size="xxs">

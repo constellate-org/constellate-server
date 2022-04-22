@@ -3,11 +3,11 @@ import { Constellation } from '../../lib/constellate';
 import PanelContent from '../../components/panels/panel_content';
 import { useEuiTheme } from '@elastic/eui';
 import { useRouter } from 'next/router';
-import Wrapper from '../../components/starter/wrapper';
 import data from '../../../public/mcmc.constellate.json';
+import Header from '../../components/starter/header';
 
 function StarPage({ constellation }) {
-  const { euiTheme, colorMode } = useEuiTheme();
+  const { colorMode } = useEuiTheme();
   const router = useRouter();
   const { id } = router.query;
   const starId = Array.isArray(id) ? parseInt(id[0]) : parseInt(id);
@@ -21,14 +21,13 @@ function StarPage({ constellation }) {
             <title>{constellation.title}</title>
           </Head>
 
-          <Wrapper>
-            <PanelContent
-              star={constellation.stars[starId]}
-              uuid={uuid}
-              panelUrl="http://localhost:5006"
-              isDark={colorMode === 'DARK'}
-            />
-          </Wrapper>
+          <Header />
+          <PanelContent
+            star={constellation.stars[starId]}
+            uuid={uuid}
+            panelUrl="http://localhost:5006"
+            isDark={colorMode === 'DARK'}
+          />
         </>
       )}
     </>
@@ -42,7 +41,10 @@ export async function getStaticPaths() {
    *   'file:///home/nicholas/programs/constellations/metropolis-hastings/mcmc.constellate.json'
    * );
    * const constellation: Constellation = await res.json(); */
-  const constellation = data;
+  data.stars = data.stars.slice(0, 1);
+
+  // @ts-ignore
+  const constellation: Constellation = data;
 
   const paths = [];
   constellation.stars.forEach((s, i) => {
@@ -64,7 +66,9 @@ export async function getStaticProps() {
    *   'file:///home/nicholas/programs/constellations/metropolis-hastings/mcmc.constellate.json'
    * );
    * const constellation: Constellation = await res.json();  */
-  const constellation = data;
+
+  // @ts-ignore
+  const constellation: Constellation = data;
 
   return {
     props: {

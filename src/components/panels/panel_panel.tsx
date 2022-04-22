@@ -1,15 +1,21 @@
 import React from 'react';
-import { EuiCodeBlock, EuiTabbedContent, useEuiTheme } from '@elastic/eui';
+import {
+  withEuiTheme,
+  EuiCodeBlock,
+  EuiTabbedContent,
+  UseEuiTheme,
+} from '@elastic/eui';
 import { MarkdownPanel } from '../../lib/constellate';
+import { panelPanelStyles } from './panel_panel.styles';
 
 type PanelProps = {
   star: MarkdownPanel;
   uuid: string;
-  isDark: boolean;
   url: string;
+  theme: UseEuiTheme;
 };
 
-export default class PanelPanel extends React.Component<PanelProps> {
+class PanelPanelInner extends React.Component<PanelProps> {
   constructor(props) {
     super(props);
   }
@@ -19,8 +25,10 @@ export default class PanelPanel extends React.Component<PanelProps> {
   }
 
   loadPlot() {
-    const colorMode = this.props.isDark ? 'dark' : 'light';
-    const plot = document.getElementById(`imgEmbedContent${colorMode}`);
+    const { colorMode } = this.props.theme;
+    const plot = document.getElementById(
+      `imgEmbedContent${colorMode.toLocaleLowerCase()}`
+    );
     if (!plot || plot.innerHTML === '') {
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'text';
@@ -28,9 +36,10 @@ export default class PanelPanel extends React.Component<PanelProps> {
       const url = this.props.url;
       const path = this.props.star.star_id;
       console.log(`${url}/${path}`);
+      console.log('color mode', colorMode);
       xhr.open(
         'GET',
-        `${url}/${path}/autoload.js?bokeh-autoload-element=imgEmbedContent${colorMode}&bokeh-app-path=/${path}&bokeh-absolute-url=${url}/${path}&colorMode=${colorMode}`,
+        `${url}/${path}/autoload.js?bokeh-autoload-element=imgEmbedContent${colorMode}&bokeh-app-path=/${path}&bokeh-absolute-url=${url}/${path}&colorMode=${colorMode.toLocaleLowerCase()}`,
         true
       );
       xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, max-age=0');
@@ -38,9 +47,11 @@ export default class PanelPanel extends React.Component<PanelProps> {
       xhr.setRequestHeader('ColorMode', colorMode);
 
       const script_id = this.props.uuid + colorMode;
-
       xhr.onload = function (event) {
         console.log('1');
+        if (document.getElementById(script_id)) {
+          document.getElementById(script_id).remove();
+        }
         if (!document.getElementById(script_id)) {
           console.log('2');
           const script = document.createElement('script');
@@ -58,8 +69,9 @@ export default class PanelPanel extends React.Component<PanelProps> {
   }
 
   render() {
-    const colorMode = this.props.isDark ? 'dark' : 'light';
-    const invColorMode = !this.props.isDark ? 'dark' : 'light';
+    const styles = panelPanelStyles(this.props.theme);
+    const { colorMode } = this.props.theme;
+    const invColorMode = colorMode == 'DARK' ? 'LIGHT' : 'DARK';
     const tabs = [
       {
         id: 'img',
@@ -82,7 +94,6 @@ export default class PanelPanel extends React.Component<PanelProps> {
             fontSize="m"
             paddingSize="m"
             isCopyable={true}
-            isVirtualized
             id="codeBlockEmbed">
             {this.props.star.panel}
           </EuiCodeBlock>
@@ -90,14 +101,17 @@ export default class PanelPanel extends React.Component<PanelProps> {
       },
     ];
 
-    const embed = document.getElementById(this.props.uuid + invColorMode);
-    console.log('3');
-    if (embed) {
-      console.log('4');
-      document.getElementById(this.props.uuid + invColorMode).remove();
-      document.getElementById(`imgEmbedContent${invColorMode}`).innerHTML = '';
+    if (typeof document !== 'undefined') {
+      const embed = document.getElementById(this.props.uuid + invColorMode);
+      console.log('3');
+      if (embed) {
+        console.log('4');
+        document.getElementById(this.props.uuid + invColorMode).remove();
+        document.getElementById(`imgEmbedContent${invColorMode}`).innerHTML =
+          '';
+        this.loadPlot();
+      }
     }
-    this.loadPlot();
 
     return (
       <EuiTabbedContent
@@ -105,17 +119,21 @@ export default class PanelPanel extends React.Component<PanelProps> {
         initialSelectedTab={tabs[0]}
         className="eui-fullHeight"
         id="panelTabs"
+        aria-label="Panel Tabs"
         expand={true}
+        css={styles.tabPanel}
         onTabClick={tab => {
           if (tab.id == 'img') {
             this.loadPlot();
           } else {
             document.getElementById(`imgEmbedContent${colorMode}`).innerHTML =
               '';
-            document.getElementById(this.props.uuid + colorMode).remove();
+            // document.getElementById(this.props.uuid + colorMode).remove();
           }
         }}
       />
     );
   }
 }
+
+export default withEuiTheme(PanelPanelInner);

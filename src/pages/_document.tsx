@@ -92,6 +92,8 @@ export default class MyDocument extends Document {
             href={isLocalDev ? favicon96Dev : favicon96Prod}
             sizes="96x96"
           />
+
+          <link rel="stylesheet" href="https://use.typekit.net/rkc4ciw.css" />
         </Head>
         <body className="guideBody">
           <Main />

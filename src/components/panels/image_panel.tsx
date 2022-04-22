@@ -22,8 +22,9 @@ export default function ImagePanel(props) {
           direction="column"
           className="eui-fullHeight">
           <EuiFlexItem grow={false} className="eui-fullHeight">
-            <div style={{ width: 800, height: 800 }}>
-              <Image src={url} layout="responsive" width="800" height="800" />
+            <div
+              style={{ width: '100%', height: '100%', position: 'relative' }}>
+              <Image src={url} layout="fill" alt="plot" objectFit="contain" />
             </div>
           </EuiFlexItem>
         </EuiFlexGroup>

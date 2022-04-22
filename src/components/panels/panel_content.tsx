@@ -16,15 +16,9 @@ export default function PanelContent(props: PanelContentProps) {
     case 'pure_markdown':
       return <></>;
     case 'markdown_panel':
-      return <></>;
-    /* return (
-     *   <PanelPanel
-     *     star={props.star}
-     *     url={props.panelUrl}
-     *     isDark={props.isDark}
-     *     uuid={props.uuid}
-     *   />
-     * );  */
+      return (
+        <PanelPanel star={props.star} url={props.panelUrl} uuid={props.uuid} />
+      );
     case 'markdown_code': {
       return (
         <CodePanel

@@ -3,6 +3,8 @@ export type MarkdownMatplotlib = {
   star_id: string;
   markdown: string;
   matplotlib: string;
+  light?: string;
+  dark?: string;
 };
 
 export type MarkdownLatex = {
@@ -34,14 +36,15 @@ export type MarkdownCode = {
 };
 
 export type Star =
+  | PureMarkdown
   | MarkdownMatplotlib
   | MarkdownLatex
   | MarkdownPanel
-  | PureMarkdown
   | MarkdownCode;
 
 export type Constellation = {
-  setup: Array<string>;
+  setup_mpl: Array<string>;
+  setup_panel: Array<string>;
   stars: Array<Star>;
   breadcrumbs: Array<Array<number>>;
   title: string;
