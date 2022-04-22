@@ -6,6 +6,7 @@ import { Global } from '@emotion/react';
 import { Theme } from '../components/theme';
 import { globalStyes } from '../styles/global.styles';
 import Rho from '../components/rho';
+import ThemedOverrides from '../styles/themed_overrides';
 
 import 'katex/dist/katex.min.css';
 
@@ -25,6 +26,7 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
     <Global styles={globalStyes} />
     <Theme>
       <Rho>
+        <ThemedOverrides />
         <EuiErrorBoundary>
           <Component {...pageProps} />
         </EuiErrorBoundary>

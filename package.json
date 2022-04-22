@@ -4,13 +4,7 @@
   "description": "Start building protoypes quickly with the Next.js EUI Starter",
   "version": "1.0.0",
   "author": "Rory Hunter <rory@elastic.co>",
-  "keywords": [
-    "next",
-    "kibana",
-    "eui",
-    "elastic",
-    "typescript"
-  ],
+  "keywords": ["next", "kibana", "eui", "elastic", "typescript"],
   "engines": {
     "node": ">=12.22.0"
   },
@@ -20,7 +14,7 @@
     "build": "yarn lint && rm -f public/themes/*.min.css && next build",
     "build-docs": "yarn lint && bash scripts/update-docs.sh",
     "dev": "next",
-    "lint": "tsc && next lint",
+    "lint": "next lint",
     "start": "next start",
     "test-docs": "yarn lint && bash scripts/test-docs.sh"
   },
@@ -33,7 +27,9 @@
   },
   "dependencies": {
     "@elastic/eui": "^53.0.1",
-    "katex": "^0.15.3"
+    "interweave": "^13.0.0",
+    "katex": "^0.15.3",
+    "remark-smartypants": "^2.0.0"
   },
   "devDependencies": {
     "@elastic/datemath": "^5.0.3",

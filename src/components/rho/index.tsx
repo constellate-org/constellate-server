@@ -28,6 +28,16 @@ const Rho: FunctionComponent = ({ children }) => {
   });
 
   const overrides = {
+    colors: {
+      LIGHT: {
+        primary: '#634DBF',
+        accent: '#7C327C',
+      },
+      DARK: {
+        primary: '#9881F3',
+        accent: '#BD6BBD',
+      },
+    },
     font: {
       family: "'myriad-pro', serif",
       familyCode: "'Cascadia Code PL', Menlo, monospace",

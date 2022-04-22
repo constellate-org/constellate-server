@@ -26,7 +26,7 @@ export default function LatexPanel({ children }) {
         <EuiPanel grow={false} className="margin2">
           <EuiMarkdownFormat
             parsingPluginList={parsingList}
-            processingPluginList={processingList}
+            processingPluginList={processingList as any}
             id="latexContent"
             grow={true}>
             {children}
