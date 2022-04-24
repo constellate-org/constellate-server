@@ -21,7 +21,7 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       {/* You can override this in other pages - see index.tsx for an example */}
-      <title>Pollard's Rho</title>
+      <title>{"Pollard's Rho"}</title>
     </Head>
     <Global styles={globalStyes} />
     <Theme>

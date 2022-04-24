@@ -1,6 +1,6 @@
 // @ts-no
 
-import { GlobalHotKeys, getApplicationKeyMap } from 'react-hotkeys';
+import { GlobalHotKeys } from 'react-hotkeys';
 import {
   EuiDescriptionList,
   EuiFlyout,
@@ -8,6 +8,7 @@ import {
   EuiFlyoutBody,
   EuiTitle,
   EuiButtonIcon,
+  htmlIdGenerator,
 } from '@elastic/eui';
 import React from 'react';
 
@@ -20,8 +21,6 @@ function keyDisplay(keycode: string) {
     ArrowDown: '↓',
     shift: 'Shift',
   };
-
-  console.log(keycode);
 
   if (keycode in SPECIAL_KEYS) {
     return <kbd>{SPECIAL_KEYS[keycode]}</kbd>;
@@ -45,7 +44,11 @@ function hotKeysInfo(keyMap) {
       title: name,
       description: sequences
         .map(sequence => <kbd key={sequence}>{keyDisplay(sequence)}</kbd>)
-        .reduce((prev, curr) => [prev, <kbd>, </kbd>, curr]),
+        .reduce((prev, curr) => [
+          prev,
+          <kbd key={htmlIdGenerator('kbd')()}>, </kbd>,
+          curr,
+        ]),
     };
   });
 
@@ -54,7 +57,7 @@ function hotKeysInfo(keyMap) {
   );
 }
 
-let HelpFlyout = props => {
+const HelpFlyout = props => {
   return props.isOpen ? (
     <EuiFlyout onClose={props.onClose} paddingSize="l" size="s">
       <EuiFlyoutHeader hasBorder>
@@ -67,7 +70,10 @@ let HelpFlyout = props => {
   ) : null;
 };
 
-class ShortcutHandler extends React.Component<{}, { isFlyoutOpen: boolean }> {
+class ShortcutHandler extends React.Component<
+  Record<string, never>,
+  { isFlyoutOpen: boolean }
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -121,7 +127,7 @@ class ShortcutHandler extends React.Component<{}, { isFlyoutOpen: boolean }> {
       <>
         <GlobalHotKeys
           /*
-          // @ts-ignore */
+                                                            // @ts-ignore */
           keyMap={keyMap}
           handlers={handlers}
         />
