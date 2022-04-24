@@ -43,10 +43,10 @@ import {
   EuiTab,
   EuiTabs,
 } from '@elastic/eui';
-/* import remarkFootnotes from 'remark-footnotes';
- * import remarkGfm from 'remark-gfm';  */
-// import remarkSmartypants from 'remark-smartypants';
-/* import remarkNumberedFootnoteLabels from 'remark-numbered-footnote-labels'; */
+import remarkFootnotes from 'remark-footnotes';
+// import remarkGfm from 'remark-gfm';
+import remarkSmartypants from 'remark-smartypants';
+import remarkNumberedFootnoteLabels from 'remark-numbered-footnote-labels';
 
 import { KatexRenderer, MathMarkdownParser } from './math';
 
@@ -73,11 +73,13 @@ parsingList.push([MathMarkdownParser, { singleDollar: true }]);
 
 const processingList = getDefaultEuiMarkdownProcessingPlugins();
 processingList[1][1].components.mathPlugin = KatexRenderer;
-// processingList.splice(0, 0, [[remarkSmartypants], {}]);
-// processingList.splice(0, 0, [remarkSmartypants, {}]);
-/* processingList.splice(0, 0, [remarkGfm, {}]);
- * processingList.splice(0, 0, [remarkFootnotes, {}]);
- * processingList.splice(0, 0, [remarkNumberedFootnoteLabels, {}]); */
+// @ts-ignore
+processingList.splice(0, 0, [remarkSmartypants, {}]);
+// processingList.splice(0, 0, [remarkGfm, {}]);
+// @ts-ignore
+processingList.splice(0, 0, [remarkFootnotes, {}]);
+// @ts-ignore
+processingList.splice(0, 0, [remarkNumberedFootnoteLabels, {}]);
 
 export default function TextPanel(props) {
   return (
@@ -98,7 +100,9 @@ export default function TextPanel(props) {
           <div className="eui-yScroll">
             <EuiMarkdownFormat
               parsingPluginList={parsingList}
-              processingPluginList={processingList as any}
+              /*
+                                                                                    // @ts-ignore */
+              processingPluginList={processingList}
               id="textContent"
               grow>
               {props.content}

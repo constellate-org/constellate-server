@@ -7,8 +7,8 @@ import { Theme } from '../components/theme';
 import { globalStyes } from '../styles/global.styles';
 import Rho from '../components/rho';
 import ThemedOverrides from '../styles/themed_overrides';
-import Shortcuts from '../components/hotkeys';
 import 'katex/dist/katex.min.css';
+import footnotesStyles from '../styles/footnotes.styles';
 
 /**
  * Next.js uses the App component to initialize pages. You can override it
@@ -24,6 +24,7 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
       <title>{"Pollard's Rho"}</title>
     </Head>
     <Global styles={globalStyes} />
+    <Global styles={footnotesStyles} />
     <Theme>
       <Rho>
         <ThemedOverrides />

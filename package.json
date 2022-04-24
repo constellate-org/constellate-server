@@ -36,6 +36,8 @@
     "interweave": "^13.0.0",
     "katex": "^0.15.3",
     "react-hotkeys": "^2.0.0",
+    "remark-footnotes": "2.0",
+    "remark-numbered-footnote-labels": "^1.1.0",
     "remark-smartypants": "^2.0.0"
   },
   "devDependencies": {
