@@ -1,3 +1,5 @@
+// @ts-no
+
 import { GlobalHotKeys, getApplicationKeyMap } from 'react-hotkeys';
 import {
   EuiDescriptionList,
@@ -114,9 +116,15 @@ class ShortcutHandler extends React.Component<{}, { isFlyoutOpen: boolean }> {
         this.setState({ isFlyoutOpen: !this.state.isFlyoutOpen });
       },
     };
+
     return (
       <>
-        <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
+        <GlobalHotKeys
+          /*
+          // @ts-ignore */
+          keyMap={keyMap}
+          handlers={handlers}
+        />
         <HelpFlyout
           isOpen={this.state.isFlyoutOpen}
           onClose={() => this.setState({ isFlyoutOpen: false })}>
