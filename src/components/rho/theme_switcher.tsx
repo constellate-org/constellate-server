@@ -19,6 +19,7 @@ const ThemeSwitcher: FunctionComponent = () => {
       color="text"
       iconType={isDarkTheme ? 'sun' : 'moon'}
       aria-label="Change theme"
+      id="themeSwitcher"
       onClick={() =>
         handleChangeTheme(isDarkTheme ? 'light' : 'dark')
       }></EuiButtonIcon>

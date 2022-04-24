@@ -3,6 +3,7 @@ import Link from 'next/link';
 import TextPanel from '../../components/markdown/text_panel';
 import { Constellation, hasImgPanel } from '../../lib/constellate';
 import PanelContent from '../../components/panels/panel_content';
+import Shortcuts from '../../components/hotkeys';
 import {
   EuiButton,
   EuiButtonIcon,
@@ -80,6 +81,7 @@ function StarPage({ constellation }) {
           iconType="menu"
           color="text"
           display={isNavOpen ? 'fill' : 'empty'}
+          id="toggleMenu"
           onClick={() => setIsNavOpen(!isNavOpen)}>
           Open
         </EuiButtonIcon>
@@ -154,6 +156,9 @@ function StarPage({ constellation }) {
               <EuiHeaderSection side="right">
                 <EuiHeaderSectionItem>
                   <ThemeSwitcher key="theme-switcher" />
+                </EuiHeaderSectionItem>
+                <EuiHeaderSectionItem>
+                  <Shortcuts />
                 </EuiHeaderSectionItem>
               </EuiHeaderSection>
             </EuiHeader>

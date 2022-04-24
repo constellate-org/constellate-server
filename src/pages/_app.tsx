@@ -7,7 +7,7 @@ import { Theme } from '../components/theme';
 import { globalStyes } from '../styles/global.styles';
 import Rho from '../components/rho';
 import ThemedOverrides from '../styles/themed_overrides';
-
+import Shortcuts from '../components/hotkeys';
 import 'katex/dist/katex.min.css';
 
 /**
@@ -21,7 +21,7 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       {/* You can override this in other pages - see index.tsx for an example */}
-      <title>Next.js EUI Starter</title>
+      <title>Pollard's Rho</title>
     </Head>
     <Global styles={globalStyes} />
     <Theme>

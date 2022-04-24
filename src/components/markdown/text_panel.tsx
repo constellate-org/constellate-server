@@ -72,6 +72,7 @@ const parsingList = getDefaultEuiMarkdownParsingPlugins();
 parsingList.push([MathMarkdownParser, { singleDollar: true }]);
 
 const processingList = getDefaultEuiMarkdownProcessingPlugins();
+processingList[1][1].components.mathPlugin = KatexRenderer;
 // processingList.splice(0, 0, [[remarkSmartypants], {}]);
 // processingList.splice(0, 0, [remarkSmartypants, {}]);
 /* processingList.splice(0, 0, [remarkGfm, {}]);
