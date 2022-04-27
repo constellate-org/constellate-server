@@ -1,6 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
-import { EuiLink, EuiSideNav, htmlIdGenerator } from '@elastic/eui';
+import { EuiSideNav, htmlIdGenerator } from '@elastic/eui';
 
 import type { Constellation } from '../lib/constellate';
 

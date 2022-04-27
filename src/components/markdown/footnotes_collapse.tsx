@@ -42,11 +42,7 @@ function FootnotesCollapse(props) {
 export default function renderFootnoteBlock() {
   document
     .querySelectorAll('div.footnotes')
-    .forEach(function repl(
-      el: Element,
-      _ind: number,
-      _allEls: NodeListOf<Element>
-    ) {
+    .forEach(function repl(el: Element) {
       console.log('Wrapping footnotes...');
       const temp = document.createElement('div');
       temp.classList.toggle('footnotes');

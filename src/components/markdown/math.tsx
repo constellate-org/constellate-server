@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { InlineMath, BlockMath } from './create_comp';
 import macros from './preamble';
 

@@ -19,7 +19,6 @@ type MathProps = {
 };
 
 type MathCompState = {
-  error: any;
   html?: string;
 };
 
@@ -63,7 +62,6 @@ const createMathComponent = (Component, { displayMode }) => {
     }
 
     generateHtml(props) {
-      const { errorColor, renderError } = props;
       const usedProp = this.props.math ? 'math' : 'children';
       return KaTeX.renderToString(props[usedProp], {
         ...this.props,
@@ -71,14 +69,9 @@ const createMathComponent = (Component, { displayMode }) => {
     }
 
     render() {
-      const { error, html } = this.state;
-      const { throwOnError } = this.props;
+      const { html } = this.state;
 
-      if (error) {
-        return <Component html={`${error.message}`} />;
-      } else {
-        return <Component html={html} />;
-      }
+      return <Component html={html} />;
     }
   }
   return MathComponent;

@@ -5,7 +5,7 @@ import Wrapper from '../components/starter/wrapper';
 import HomeTemplates from '../components/starter/home_templates';
 import HomeWhy from '../components/starter/home_why';
 
-function Index({ constellation }) {
+function Index() {
   return (
     <>
       <Head>

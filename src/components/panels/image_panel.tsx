@@ -2,16 +2,14 @@ import {
   EuiCodeBlock,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiImage,
   EuiTabbedContent,
-  useEuiTheme,
 } from '@elastic/eui';
 
 import Image from 'next/image';
 
 export default function ImagePanel(props) {
   const { url, code } = props;
-  const { euiTheme, colorMode } = useEuiTheme();
+  // const { euiTheme, colorMode } = useEuiTheme();
   const tabs = [
     {
       id: 'img',

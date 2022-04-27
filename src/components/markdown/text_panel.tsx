@@ -15,33 +15,13 @@
  * import { icon as comment } from '@elastic/eui/es/components/icon/assets/editor_comment';
  * import { icon as cross } from '@elastic/eui/es/components/icon/assets/crossInACircleFilled'; */
 
-import React, {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from 'react';
 import {
   EuiMarkdownFormat,
   EuiPanel,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiSpacer,
-  EuiFormRow,
-  EuiSelect,
-  EuiRange,
-  EuiColorPicker,
-  useColorPickerState,
-  EuiButton,
-  EuiPopover,
   getDefaultEuiMarkdownParsingPlugins,
   getDefaultEuiMarkdownProcessingPlugins,
-  getDefaultEuiMarkdownUiPlugins,
-  EuiCodeBlock,
-  EuiMarkdownEditor,
-  EuiTabbedContent,
-  EuiTab,
-  EuiTabs,
 } from '@elastic/eui';
 import remarkFootnotes from 'remark-footnotes';
 // import remarkGfm from 'remark-gfm';
@@ -101,7 +81,7 @@ export default function TextPanel(props) {
             <EuiMarkdownFormat
               parsingPluginList={parsingList}
               /*
-                                                                                    // @ts-ignore */
+                                                                                                                // @ts-ignore */
               processingPluginList={processingList}
               id="textContent"
               grow>
