@@ -6,7 +6,7 @@ import {
   UseEuiTheme,
 } from '@elastic/eui';
 import { MarkdownPanel } from '../../lib/constellate';
-import { panelPanelStyles } from './panel_panel.styles';
+import panelPanelStyles from './panel_panel.styles';
 
 type PanelProps = {
   star: MarkdownPanel;
@@ -21,10 +21,11 @@ class PanelPanelInner extends React.Component<PanelProps> {
   }
 
   componentDidMount() {
-    this.loadPlot();
+    this.loadPlot(false);
+    console.log('7');
   }
 
-  loadPlot() {
+  loadPlot(force: boolean) {
     const { colorMode } = this.props.theme;
     const plot = document.getElementById(
       `imgEmbedContent${colorMode.toLocaleLowerCase()}`
@@ -49,10 +50,9 @@ class PanelPanelInner extends React.Component<PanelProps> {
       const script_id = this.props.uuid + colorMode;
       xhr.onload = function (event) {
         console.log('1');
-        if (document.getElementById(script_id)) {
-          document.getElementById(script_id).remove();
-        }
-        if (!document.getElementById(script_id)) {
+        if (document.getElementById(script_id) && !force) {
+          // document.getElementById(script_id).remove();
+        } else {
           console.log('2');
           const script = document.createElement('script');
           script.id = script_id;
@@ -78,7 +78,9 @@ class PanelPanelInner extends React.Component<PanelProps> {
         name: 'Plot',
         content: (
           <div id="imgEmbedContainer">
-            <div id={`imgEmbedContent${colorMode}`}></div>
+            <div
+              id={`imgEmbedContent${colorMode}`}
+              css={styles.embedContent}></div>
           </div>
         ),
       },
@@ -107,9 +109,12 @@ class PanelPanelInner extends React.Component<PanelProps> {
       if (embed) {
         console.log('4');
         document.getElementById(this.props.uuid + invColorMode).remove();
-        document.getElementById(`imgEmbedContent${invColorMode}`).innerHTML =
-          '';
-        this.loadPlot();
+        if (document.getElementById(`imgEmbedContent${invColorMode}`)) {
+          document.getElementById(`imgEmbedContent${invColorMode}`).innerHTML =
+            '';
+        }
+        this.loadPlot(false);
+        console.log('6');
       }
     }
 
@@ -124,7 +129,8 @@ class PanelPanelInner extends React.Component<PanelProps> {
         css={styles.tabPanel}
         onTabClick={tab => {
           if (tab.id == 'img') {
-            this.loadPlot();
+            this.loadPlot(true);
+            console.log('5');
           } else {
             document.getElementById(`imgEmbedContent${colorMode}`).innerHTML =
               '';

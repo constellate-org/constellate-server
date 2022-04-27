@@ -56,7 +56,7 @@ function StarPage({ constellation }) {
           <PanelContent
             star={constellation.stars[starId]}
             uuid={uuid}
-            panelUrl="http://localhost:5006"
+            panelUrl={process.env.PANEL_URL}
             isDark={colorMode === 'DARK'}
           />
         </EuiResizablePanel>

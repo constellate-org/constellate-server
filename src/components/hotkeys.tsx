@@ -23,7 +23,7 @@ function keyDisplay(keycode: string) {
   };
 
   if (keycode in SPECIAL_KEYS) {
-    return <kbd>{SPECIAL_KEYS[keycode]}</kbd>;
+    return <kbd key={htmlIdGenerator('kbd')()}>{SPECIAL_KEYS[keycode]}</kbd>;
   }
 
   // if combination, parse each sub-unit
@@ -33,7 +33,9 @@ function keyDisplay(keycode: string) {
   }
 
   // otherwise, print in all caps: probably single letter
-  return <kbd>{keycode.toLocaleUpperCase()}</kbd>;
+  return (
+    <kbd key={htmlIdGenerator('kbd')()}>{keycode.toLocaleUpperCase()}</kbd>
+  );
 }
 
 function hotKeysInfo(keyMap) {
@@ -43,7 +45,9 @@ function hotKeysInfo(keyMap) {
     return {
       title: name,
       description: sequences
-        .map(sequence => <kbd key={sequence}>{keyDisplay(sequence)}</kbd>)
+        .map(sequence => (
+          <kbd key={htmlIdGenerator('kbd')()}>{keyDisplay(sequence)}</kbd>
+        ))
         .reduce((prev, curr) => [
           prev,
           <kbd key={htmlIdGenerator('kbd')()}>, </kbd>,
@@ -127,7 +131,7 @@ class ShortcutHandler extends React.Component<
       <>
         <GlobalHotKeys
           /*
-                                                            // @ts-ignore */
+                                                                                          // @ts-ignore */
           keyMap={keyMap}
           handlers={handlers}
         />

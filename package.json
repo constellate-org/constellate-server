@@ -4,13 +4,7 @@
   "description": "Start building protoypes quickly with the Next.js EUI Starter",
   "version": "1.0.0",
   "author": "Rory Hunter <rory@elastic.co>",
-  "keywords": [
-    "next",
-    "kibana",
-    "eui",
-    "elastic",
-    "typescript"
-  ],
+  "keywords": ["next", "kibana", "eui", "elastic", "typescript"],
   "engines": {
     "node": ">=12.22.0"
   },
@@ -22,7 +16,9 @@
     "dev": "next",
     "lint": "next lint",
     "start": "next start",
-    "test-docs": "yarn lint && bash scripts/test-docs.sh"
+    "test-docs": "yarn lint && bash scripts/test-docs.sh",
+    "constellate": "/home/nicholas/anaconda3/envs/ds/bin/python /home/nicholas/programs/constellate/test.py",
+    "serve-panel": "/home/nicholas/anaconda3/envs/ds/bin/panel serve panel-servers/*.py --allow-websocket-origin=\"*\" --port=5006 --address=0.0.0.0"
   },
   "repository": {
     "type": "git",

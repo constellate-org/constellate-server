@@ -47,6 +47,7 @@ const nextConfig = {
   env: {
     PATH_PREFIX: pathPrefix,
     THEME_CONFIG: JSON.stringify(themeConfig),
+    PANEL_URL: 'http://localhost:5006'
   },
 
   /**
@@ -85,7 +86,7 @@ const nextConfig = {
 
       config.plugins[definePluginId].definitions = {
         ...config.plugins[definePluginId].definitions,
-        HTMLElement: function () {},
+        HTMLElement: function () { },
       };
     }
 
