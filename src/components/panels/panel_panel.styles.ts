@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 // prettier-ignore
 export default function panelPanelStyles(theme) {
-  let { euiTheme } = theme;
+  const { euiTheme } = theme;
 
   return {
     tabPanel: css`
@@ -17,4 +17,4 @@ border-radius: ${euiTheme.border.radius.medium};
  box-shadow: 0 ${euiTheme.size.xs} ${euiTheme.size.xs} ${transparentize(euiTheme.colors.shadow, 0.04)};
 `
   }
-};
+}
