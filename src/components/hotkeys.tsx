@@ -89,11 +89,11 @@ class ShortcutHandler extends React.Component<
     const keyMap = {
       NEXT_PAGE: {
         name: 'Next page',
-        sequences: ['n', 'ArrowRight'],
+        sequences: ['f', 'n', 'ArrowRight'],
       },
       PREV_PAGE: {
         name: 'Previous page',
-        sequences: ['p', 'ArrowLeft'],
+        sequences: ['p', 'b', 'ArrowLeft'],
       },
       TOGGLE_THEME: {
         name: 'Toggle dark theme',
@@ -131,7 +131,7 @@ class ShortcutHandler extends React.Component<
       <>
         <GlobalHotKeys
           /*
-                                                                                          // @ts-ignore */
+                  // @ts-ignore */
           keyMap={keyMap}
           handlers={handlers}
         />
