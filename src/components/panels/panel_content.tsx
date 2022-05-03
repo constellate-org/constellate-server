@@ -3,6 +3,7 @@ import CodePanel from './code_panel';
 import ImagePanel from './image_panel';
 import LatexPanel from './latex_panel';
 import PanelPanel from './panel_panel';
+import WidgetPanel from './widget_panel';
 
 type PanelContentProps = {
   star: Star;
@@ -35,5 +36,7 @@ export default function PanelContent(props: PanelContentProps) {
           code={props.star.matplotlib}
         />
       );
+    case 'markdown_widgets':
+      return <WidgetPanel />;
   }
 }

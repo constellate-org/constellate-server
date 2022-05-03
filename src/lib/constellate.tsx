@@ -21,6 +21,13 @@ export type MarkdownPanel = {
   panel: string;
 };
 
+export type MarkdownWidgets = {
+  kind: 'markdown_widgets';
+  star_id: string;
+  markdown: string;
+  widgets: string;
+};
+
 export type PureMarkdown = {
   kind: 'pure_markdown';
   star_id: string;
@@ -40,6 +47,7 @@ export type Star =
   | MarkdownMatplotlib
   | MarkdownLatex
   | MarkdownPanel
+  | MarkdownWidgets
   | MarkdownCode;
 
 export type Constellation = {

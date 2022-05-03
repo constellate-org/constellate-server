@@ -4,7 +4,13 @@
   "description": "Start building protoypes quickly with the Next.js EUI Starter",
   "version": "1.0.0",
   "author": "Rory Hunter <rory@elastic.co>",
-  "keywords": ["next", "kibana", "eui", "elastic", "typescript"],
+  "keywords": [
+    "next",
+    "kibana",
+    "eui",
+    "elastic",
+    "typescript"
+  ],
   "engines": {
     "node": ">=12.22.0"
   },
@@ -51,6 +57,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "glob": "^7.2.0",
     "iniparser": "^1.0.5",
+    "interweave-ssr": "^2.0.0",
     "moment": "^2.29.1",
     "next": "^12.1.0",
     "null-loader": "^4.0.1",

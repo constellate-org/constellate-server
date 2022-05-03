@@ -2127,6 +2127,14 @@ internal-slot@^1.0.3:
     has "^1.0.3"
     side-channel "^1.0.4"
 
+interweave-ssr@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/interweave-ssr/-/interweave-ssr-2.0.0.tgz#dc19211db472ae20892ca87991a03c2286df0923"
+  integrity sha512-vxWOJzQsm4neGGOksKEOovOP3d6elGJ3bKnssreDIWK+luveNUvV69enU28UtX5KFx8ft1wXDa2Dk/G87DEf+A==
+  dependencies:
+    parse5 "^6.0.1"
+    style-parser "^1.1.1"
+
 interweave@^13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/interweave/-/interweave-13.0.0.tgz#68fdaa6bde65cf296ba74829bb3746d2a5455a2b"
@@ -2897,10 +2905,15 @@ parse-node-version@^1.0.1:
   resolved "https://registry.yarnpkg.com/parse-node-version/-/parse-node-version-1.0.1.tgz#e2b5dbede00e7fa9bc363607f53327e8b073189b"
   integrity sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA==
 
-parse5@^6.0.0:
+parse5@^6.0.0, parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-6.0.1.tgz#e1a1c085c569b3dc08321184f19a39cc27f7c30b"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
+
+parsimmon@^0.7.0:
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/parsimmon/-/parsimmon-0.7.2.tgz#805fc6d1ed52d0c9b65cbf6b4da58a161e68e7e1"
+  integrity sha1-gF/G0e1S0Mm2XL9rTaWKFh5o5+E=
 
 path-exists@^3.0.0:
   version "3.0.0"
@@ -3833,6 +3846,13 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
+
+style-parser@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/style-parser/-/style-parser-1.1.1.tgz#9deb628d75462ff07b15662a72c0d5a8e4d5ffc5"
+  integrity sha1-netijXVGL/B7FWYqcsDVqOTV/8U=
+  dependencies:
+    parsimmon "^0.7.0"
 
 style-to-object@^0.3.0:
   version "0.3.0"
