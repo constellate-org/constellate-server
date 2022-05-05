@@ -13,7 +13,7 @@ export default function plotlyPanelStyles(theme, mSize) {
         paper_bgcolor: t.colors.emptyShade,
         plot_bgcolor: t.colors.lightestShade,
         font: {
-            color: t.colors.textColor,
+            color: t.colors.text,
             family: t.font.family,
             size: mSize,
         },
