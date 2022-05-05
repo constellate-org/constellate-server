@@ -21,11 +21,15 @@ export type MarkdownPanel = {
   panel: string;
 };
 
-export type MarkdownWidgets = {
-  kind: 'markdown_widgets';
+export type MarkdownPlotly = {
+  kind: 'markdown_plotly';
   star_id: string;
   markdown: string;
-  widgets: string;
+  plotly: string;
+  figure: {
+    data: Array<Record<string, unknown>>;
+    layout: Record<string, unknown>;
+  };
 };
 
 export type PureMarkdown = {
@@ -47,12 +51,13 @@ export type Star =
   | MarkdownMatplotlib
   | MarkdownLatex
   | MarkdownPanel
-  | MarkdownWidgets
+  | MarkdownPlotly
   | MarkdownCode;
 
 export type Constellation = {
-  setup_mpl: Array<string>;
+  setup_matplotlib: Array<string>;
   setup_panel: Array<string>;
+  setup_plotly: Array<string>;
   stars: Array<Star>;
   breadcrumbs: Array<Array<number>>;
   title: string;

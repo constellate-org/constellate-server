@@ -4,13 +4,7 @@
   "description": "Start building protoypes quickly with the Next.js EUI Starter",
   "version": "1.0.0",
   "author": "Rory Hunter <rory@elastic.co>",
-  "keywords": [
-    "next",
-    "kibana",
-    "eui",
-    "elastic",
-    "typescript"
-  ],
+  "keywords": ["next", "kibana", "eui", "elastic", "typescript"],
   "engines": {
     "node": ">=12.22.0"
   },
@@ -34,7 +28,9 @@
     "url": "https://github.com/elastic/next-eui-starter/issues"
   },
   "dependencies": {
-    "@elastic/eui": "^53.0.1",
+    "@elastic/eui": "^56.0.0",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "interweave": "^13.0.0",
     "katex": "^0.15.3",
     "react-hotkeys": "^2.0.0",
@@ -61,15 +57,18 @@
     "moment": "^2.29.1",
     "next": "^12.1.0",
     "null-loader": "^4.0.1",
+    "plotly.js": "^2.12.0",
     "prettier": "^2.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-plotly.js": "^2.5.1",
     "sass": "^1.43.5",
     "serve": "^13.0.2",
     "typescript": "^4.5.2",
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "resolutions": {
-    "trim": "0.0.3"
+    "trim": "0.0.3",
+    "@types/react": "^17.0.44"
   }
 }

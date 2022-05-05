@@ -129,12 +129,10 @@ class ShortcutHandler extends React.Component<
 
     return (
       <>
-        <GlobalHotKeys
-          /*
-                  // @ts-ignore */
-          keyMap={keyMap}
-          handlers={handlers}
-        />
+        {
+          // @ts-ignore
+          <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
+        }
         <HelpFlyout
           isOpen={this.state.isFlyoutOpen}
           onClose={() => this.setState({ isFlyoutOpen: false })}>
