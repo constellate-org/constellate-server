@@ -93,7 +93,7 @@ export default class MyDocument extends Document {
             sizes="96x96"
           />
 
-          <link rel="stylesheet" href="https://use.typekit.net/rkc4ciw.css" />
+          <link rel="stylesheet" href="https://use.typekit.net/ywt8hoe.css" />
         </Head>
         <body className="guideBody">
           <Main />
