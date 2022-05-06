@@ -174,7 +174,7 @@ function StarPage({ constellation }) {
                     hasShadow
                     hasBorder>
                     <TextPanel content={constellation.stars[starId].markdown} />
-                    {prevId && (
+                    {prevId !== null && (
                       <Link href={`/star/${prevId}`} passHref>
                         <EuiButton
                           id="prevBtn"
@@ -185,7 +185,7 @@ function StarPage({ constellation }) {
                         </EuiButton>
                       </Link>
                     )}
-                    {nextId && (
+                    {nextId !== null && (
                       <Link href={`/star/${nextId}`} passHref>
                         <EuiButton
                           color="primary"
