@@ -1,42 +1,8 @@
-import Head from 'next/head';
-import { EuiSpacer } from '@elastic/eui';
-import HomeHero from '../components/starter/home_hero';
-import Wrapper from '../components/starter/wrapper';
-import HomeTemplates from '../components/starter/home_templates';
-import HomeWhy from '../components/starter/home_why';
-
-function Index() {
-  return (
-    <>
-      <Head>
-        <title>Stuff</title>
-      </Head>
-
-      <Wrapper>
-        <HomeHero />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-
-        <HomeWhy />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-
-        <HomeTemplates />
-
-        <EuiSpacer size="xxl" />
-        <EuiSpacer size="xxl" />
-      </Wrapper>
-    </>
-  );
-}
-
-export default Index;
-
 export async function getStaticProps() {
   return {
-    props: {},
+    redirect: {
+      destination: '/stars/0',
+      permanent: false,
+    },
   };
 }
