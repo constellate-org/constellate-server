@@ -42,15 +42,18 @@ export default function renderFootnoteBlock() {
   document
     .querySelectorAll('a.footnote-ref')
     .forEach(function repl(el: Element) {
+      el.classList.toggle('footnote-ref');
+      el.classList.toggle('footnote-ref-processed');
       const elHtml = (
         <span dangerouslySetInnerHTML={{ __html: el.outerHTML }} />
       );
       console.log('Wrapping footnote reference...');
       const temp = document.createElement('span');
       temp.classList.toggle('fn-tooltip');
-      const fnContent = document.getElementById(
+      const fnElement = document.getElementById(
         (el as HTMLLinkElement).href.split('#').reverse()[0]
-      ).innerHTML;
+      );
+      const fnContent = fnElement != null ? fnElement.innerHTML : '';
       const content = (
         <span className="fn-tooltip-content">
           <p dangerouslySetInnerHTML={{ __html: fnContent }} />
@@ -67,10 +70,15 @@ export default function renderFootnoteBlock() {
     .forEach(function repl(el: Element) {
       console.log('Wrapping footnotes...');
       const temp = document.createElement('div');
-      temp.classList.toggle('footnotes');
+      el.classList.toggle('footnotes-processed');
       const content = (
         <span
-          dangerouslySetInnerHTML={{ __html: el.querySelector('ol').outerHTML }}
+          dangerouslySetInnerHTML={{
+            __html:
+              el.querySelector('ol') != null
+                ? el.querySelector('ol').outerHTML
+                : '',
+          }}
         />
       );
       ReactDOM.render(<FootnotesCollapse inner={content} />, temp);
