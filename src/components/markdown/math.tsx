@@ -46,12 +46,12 @@ export function MathMarkdownParser({
     });
   }
 
-  // function to detect where the next emoji match might be found
+  // function to detect where the next math match might be found
   tokenizeMath.locator = (value, fromIndex) => {
     return value.indexOf('$', fromIndex);
   };
 
-  // define the emoji plugin and inject it just before the existing text plugin
+  // define the math plugin and inject it just before the existing text plugin
   tokenizers.math = tokenizeMath;
   methods.splice(0, 0, 'math');
 }

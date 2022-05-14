@@ -25,9 +25,11 @@ import { useRouter } from 'next/router';
 import data from '../../../public/mcmc.constellate.json';
 import SideBar from '../../components/side_nav';
 import ThemeSwitcher from '../../components/rho/theme_switcher';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import renderFootnoteBlock from '../../components/markdown/footnotes_collapse';
 
 function StarPage({ constellation }) {
+  useEffect(renderFootnoteBlock);
   const router = useRouter();
   const { colorMode } = useEuiTheme();
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -231,6 +233,7 @@ export async function getStaticPaths() {
     });
   });
 
+  // we need to return 404s for bad paths, because otherwise RequireJS will think our fallback page is a JS file and try to load it instead of using the CDN
   return {
     paths: paths,
     fallback: false,

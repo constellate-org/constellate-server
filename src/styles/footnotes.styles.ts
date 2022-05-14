@@ -17,6 +17,10 @@ sup[id^=fnref] {
     padding: 0.1rem;
 }
 
+div.footnotes, span.fn-tooltip-content {
+    font-size: smaller;
+}
+
 `;
 
 export default footnotesStyles;
