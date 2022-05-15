@@ -14,7 +14,7 @@ export default function CodePanel(props) {
           </EuiTitle>
         </EuiPanel>
         <EuiCodeBlock
-          language="python"
+          language={props.lang}
           lineNumbers
           overflowHeight="calc(100% - 28px)"
           fontSize="m"
@@ -33,7 +33,7 @@ export default function CodePanel(props) {
             </EuiTitle>
           </EuiPanel>
           <EuiCodeBlock
-            language="python"
+            whiteSpace="pre-wrap"
             fontSize="l"
             paddingSize="m"
             isCopyable={true}

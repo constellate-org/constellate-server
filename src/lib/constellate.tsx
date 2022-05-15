@@ -44,6 +44,7 @@ export type MarkdownCode = {
   markdown: string;
   code: string;
   output: string | undefined;
+  lang: string;
 };
 
 export type Star =

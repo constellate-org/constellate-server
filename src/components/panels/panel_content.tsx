@@ -24,7 +24,8 @@ export default function PanelContent(props: PanelContentProps) {
       return (
         <CodePanel
           code={props.star.code}
-          output={props.star.output}></CodePanel>
+          output={props.star.output}
+          lang={props.star.lang}></CodePanel>
       );
     }
     case 'markdown_latex':
