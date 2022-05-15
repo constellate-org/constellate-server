@@ -6,7 +6,7 @@ replaces SASS completely, these won't be necessary. For now, this is the only wa
 to override some parts of the default theme without making a whole new one.
 */
 
-export const globalStyes = css`
+const globalStyles = css`
 
 html {
     font-size: 100%;
@@ -35,11 +35,6 @@ body {
     height: 100vh;
 }
 
-#essay-title {
-    font-size: 1.563rem;
-    font-weight: 700;
-}
-
 .euiBody--headerIsFixed {
   padding-top: 48px;
 }
@@ -47,6 +42,10 @@ body {
 .euiBody--headerIsFixed .euiCollapsibleNav {
   top: 48px;
   height: calc(100% - 48px);
+}
+
+.euiButton {
+  font-family: inherit;
 }
 
 
@@ -167,3 +166,5 @@ body {
 }
 
 `;
+
+export default globalStyles;

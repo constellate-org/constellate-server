@@ -4,11 +4,14 @@ import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
 import { Theme } from '../components/theme';
-import { globalStyes } from '../styles/global.styles';
 import Rho from '../components/rho';
 import ThemedOverrides from '../styles/themed_overrides';
 import 'katex/dist/katex.min.css';
+import globalStyles from '../styles/global.styles';
 import footnotesStyles from '../styles/footnotes.styles';
+import themes from '../../public/constellate_themes/themes';
+
+const theme = themes[process.env.CONSTELLATE_THEME];
 
 /**
  * Next.js uses the App component to initialize pages. You can override it
@@ -23,8 +26,9 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
       {/* You can override this in other pages - see index.tsx for an example */}
       <title>{"Pollard's Rho"}</title>
     </Head>
-    <Global styles={globalStyes} />
+    <Global styles={globalStyles} />
     <Global styles={footnotesStyles} />
+    <Global styles={theme['GLOBAL']} />
     <Theme>
       <Rho>
         <ThemedOverrides />

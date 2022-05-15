@@ -110,6 +110,9 @@ export default function CustomStyling() {
   const styles = css`
         ${colors}
 
+    .euiText code.euiCode {
+        font-family: ${t.font.familyCode};
+    }
         #textContent {
         border-color: ${t.colors.lightShade};
     }

@@ -6,6 +6,10 @@ import { useTheme } from '../theme';
 
 import createCache from '@emotion/cache';
 
+import themes from '../../../public/constellate_themes/themes';
+
+const theme = themes[process.env.CONSTELLATE_THEME];
+
 /**
  * Renders the UI that surrounds the page content.
  */
@@ -26,28 +30,10 @@ const Rho: FunctionComponent = ({ children }) => {
         ? document.querySelector('meta[name="eui-styles-global"]')
         : null,
   });
-
-  const overrides = {
-    colors: {
-      LIGHT: {
-        primary: '#634DBF',
-        accent: '#7C327C',
-      },
-      DARK: {
-        primary: '#9881F3',
-        accent: '#BD6BBD',
-      },
-    },
-    font: {
-      family: "'myriad-pro', serif",
-      familyCode: "'Cascadia Code PL', Menlo, monospace",
-    },
-  };
-
   return (
     <EuiProvider
       colorMode={colorMode as EuiThemeColorMode}
-      modify={overrides}
+      modify={theme['EUI']}
       cache={emotionCache}>
       {children}
     </EuiProvider>

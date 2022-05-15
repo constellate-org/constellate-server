@@ -37,7 +37,6 @@ export function MathMarkdownParser({
     if (silent) {
       return true;
     }
-
     // must consume the exact & entire match string
     return eat(whole)({
       type: 'mathPlugin',

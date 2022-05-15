@@ -1,6 +1,9 @@
 import { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { defaultTheme, Theme, themeConfig } from '../lib/theme';
+import themes from '../../public/constellate_themes/themes';
+
+const theme = themes[process.env.CONSTELLATE_THEME];
 
 const pathPrefix = process.env.PATH_PREFIX;
 
@@ -93,7 +96,7 @@ export default class MyDocument extends Document {
             sizes="96x96"
           />
 
-          <link rel="stylesheet" href="https://use.typekit.net/ywt8hoe.css" />
+          {theme.HEAD}
         </Head>
         <body className="guideBody">
           <Main />

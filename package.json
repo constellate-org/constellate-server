@@ -4,7 +4,13 @@
   "description": "Start building protoypes quickly with the Next.js EUI Starter",
   "version": "1.0.0",
   "author": "Rory Hunter <rory@elastic.co>",
-  "keywords": ["next", "kibana", "eui", "elastic", "typescript"],
+  "keywords": [
+    "next",
+    "kibana",
+    "eui",
+    "elastic",
+    "typescript"
+  ],
   "engines": {
     "node": ">=12.22.0"
   },
@@ -34,8 +40,12 @@
     "interweave": "^13.0.0",
     "katex": "^0.15.3",
     "react-hotkeys": "^2.0.0",
+    "rehype-raw": "^6.1.1",
+    "rehype-stringify": "^9.0.3",
     "remark-footnotes": "2.0",
+    "remark-gfm": "^3.0.1",
     "remark-numbered-footnote-labels": "^1.1.0",
+    "remark-numbered-footnotes": "^3.0.0",
     "remark-smartypants": "^2.0.0"
   },
   "devDependencies": {
