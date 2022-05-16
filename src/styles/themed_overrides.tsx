@@ -96,6 +96,8 @@ export default function CustomStyling() {
   const { euiTheme, colorMode } = useEuiTheme();
   let t = euiTheme;
 
+  console.log(t.colors.accent);
+
   let primaryBg, accentBg, colors;
   if (colorMode == 'DARK') {
     primaryBg = transparentize(t.colors.primary, 0.6);

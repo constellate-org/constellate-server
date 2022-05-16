@@ -12,6 +12,16 @@ const themes = {
       },
     },
     EUI: {
+      colors: {
+        LIGHT: {
+          primary: '#006EBF',
+          accent: '#006F8B',
+        },
+        DARK: {
+          primary: '#00A2F2',
+          accent: '#00A5C1',
+        },
+      },
       font: {
         family: "'Source Sans Pro', sans-serif",
         familyCode: "'Source Code Pro', monospace",
