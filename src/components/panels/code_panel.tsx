@@ -8,9 +8,12 @@ export default function CodePanel(props) {
       direction="column"
       id="codePanel">
       <EuiSplitPanel.Inner grow>
-        <EuiPanel color="plain" paddingSize="s">
+        <EuiPanel
+          color="plain"
+          paddingSize="none"
+          className="noBottomBorderRadius">
           <EuiTitle size="xs">
-            <span>Code</span>
+            <span style={{ padding: '1rem' }}>Code</span>
           </EuiTitle>
         </EuiPanel>
         <EuiCodeBlock
@@ -21,13 +24,16 @@ export default function CodePanel(props) {
           paddingSize="m"
           isCopyable={true}
           isVirtualized
-          className="codeBlockEmbed">
+          className="codeBlockEmbed noTopBorderRadius">
           {props.code}
         </EuiCodeBlock>
       </EuiSplitPanel.Inner>
       {props.output && (
         <EuiSplitPanel.Inner grow={false}>
-          <EuiPanel color="plain" paddingSize="s">
+          <EuiPanel
+            color="plain"
+            paddingSize="s"
+            className="noBottomBorderRadius">
             <EuiTitle size="xs">
               <span>Output</span>
             </EuiTitle>
@@ -37,7 +43,7 @@ export default function CodePanel(props) {
             fontSize="l"
             paddingSize="m"
             isCopyable={true}
-            className="codeBlockEmbed">
+            className="codeBlockEmbed noTopBorderRadius">
             {props.output}
           </EuiCodeBlock>
         </EuiSplitPanel.Inner>

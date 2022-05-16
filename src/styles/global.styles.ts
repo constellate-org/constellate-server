@@ -20,6 +20,10 @@ html {
     font-family: inherit;
 }
 
+p code.euiCode {
+    font-size: 80%;
+}
+
 a {
     color: #0077cc;
 }
@@ -107,6 +111,7 @@ body {
 
 #codePanel {
     width: 100%;
+padding: 1rem;
 }
 
 .genericPanel div.euiCodeBlock {
@@ -163,6 +168,16 @@ body {
     bottom: 0px;
     right: 0px;
     margin: 16px;
+}
+
+.noTopBorderRadius {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.noBottomBorderRadius {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
 }
 
 `;
