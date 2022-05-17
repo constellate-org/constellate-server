@@ -112,6 +112,13 @@ export default function CustomStyling() {
   const styles = css`
         ${colors}
 
+    kbd>kbd {
+        border-radius: ${t.border.radius.small};
+        padding: 0.2rem;
+        background-color: ${t.colors.lightestShade};
+        color: ${t.colors.fullShade}
+    }
+
     .euiText code.euiCode {
         font-family: ${t.font.familyCode};
     }

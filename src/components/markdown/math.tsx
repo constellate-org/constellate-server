@@ -16,15 +16,15 @@ export function MathMarkdownParser({
   function tokenizeMath(eat, value, silent) {
     // match display mode
     let tokenMatch = value.match(/^\$\$([^$]+?)\$\$/);
-    let isBlock;
+    let mode;
     if (tokenMatch !== null) {
-      isBlock = true;
+      mode = 'block';
     } else if (singleDollar) {
       // now attempt to match inline math
       tokenMatch = value.match(/^\$([^\n$]+?)\$/);
 
       if (tokenMatch != null) {
-        isBlock = false;
+        mode = 'inline';
       }
     }
 
@@ -41,7 +41,7 @@ export function MathMarkdownParser({
     return eat(whole)({
       type: 'mathPlugin',
       math: math, // configuration is passed to the renderer
-      isBlock: isBlock,
+      mode: mode,
     });
   }
 
@@ -56,8 +56,9 @@ export function MathMarkdownParser({
 }
 
 // this will inevitably produce divs in ps, idk how to fix it
-export function KatexRenderer({ math, isBlock }) {
-  if (isBlock) {
+export function KatexRenderer(props) {
+  const { math, mode } = props;
+  if (mode === 'block') {
     return <BlockMath math={math} macros={macros} />;
   } else {
     return <InlineMath math={math} macros={macros} />;
