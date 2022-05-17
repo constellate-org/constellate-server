@@ -2,22 +2,13 @@ import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { EuiAccordion, EuiToolTip } from '@elastic/eui';
 
-/* import { icon as ad } from '@elastic/eui/es/components/icon/assets/arrow_down';
- * import { icon as au } from '@elastic/eui/es/components/icon/assets/arrow_up';
- * import { icon as ar } from '@elastic/eui/es/components/icon/assets/arrow_right';
- * import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
- *
- * appendIconComponentCache({
- *   arrowUp: au,
- *   arrowDown: ad,
- *   arrowright: ar,
- * }); */
-
 function FootnotesCollapse(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
   document
     .querySelectorAll('a.footnote-ref-processed')
     .forEach(function addLink(el) {
+      el.classList.toggle('footnote-ref-processed');
+      el.classList.toggle('footnote-ref-tooltip');
       (el as HTMLAnchorElement).onclick = function () {
         setIsOpen(true);
         setTimeout(
@@ -30,13 +21,15 @@ function FootnotesCollapse(props) {
       };
     });
   return (
-    <EuiAccordion
-      id="footnotes"
-      buttonContent="Footnotes"
-      forceState={isOpen ? 'open' : 'closed'}
-      onToggle={() => setIsOpen(!isOpen)}>
-      {props.inner}
-    </EuiAccordion>
+    <div>
+      <EuiAccordion
+        id="footnotes"
+        buttonContent="Footnotes"
+        forceState={isOpen ? 'open' : 'closed'}
+        onToggle={() => setIsOpen(!isOpen)}>
+        {props.inner}
+      </EuiAccordion>
+    </div>
   );
 }
 
@@ -58,20 +51,20 @@ export default function renderFootnoteBlock() {
           ? Array.from(fnElement.parentElement.children).indexOf(fnElement) + 1
           : 0;
       const content = (
-        <span className="fn-tooltip-content">
+        <div className="fn-tooltip-content">
           <p dangerouslySetInnerHTML={{ __html: fnContent }} />
-        </span>
+        </div>
       );
 
       el.innerHTML = `${fnNum}`;
-      const elHtml = (
-        <span dangerouslySetInnerHTML={{ __html: el.outerHTML }} />
-      );
-      console.log('Wrapping footnote reference...');
+      const elHtml = <div dangerouslySetInnerHTML={{ __html: el.outerHTML }} />;
       ReactDOM.render(
-        <EuiToolTip content={content}>{elHtml}</EuiToolTip>,
+        <div>
+          <EuiToolTip content={content}>{elHtml}</EuiToolTip>
+        </div>,
         temp
       );
+      console.log('Wrapping footnote reference...\n', temp);
       el.replaceWith(temp);
     });
   // render footnotes using collapse
@@ -80,18 +73,19 @@ export default function renderFootnoteBlock() {
     .forEach(function repl(el: Element) {
       console.log('Wrapping footnotes...');
       const temp = document.createElement('div');
+      el.classList.toggle('footnotes');
       el.classList.toggle('footnotes-processed');
       const content = (
-        <span
+        <div
           dangerouslySetInnerHTML={{
-            __html:
-              el.querySelector('ol') != null
-                ? el.querySelector('ol').outerHTML
-                : '',
+            __html: el.innerHTML,
           }}
         />
       );
-      ReactDOM.render(<FootnotesCollapse inner={content} />, temp);
-      el.replaceWith(temp);
+      ReactDOM.render(
+        <FootnotesCollapse inner={content} isOpen={false} />,
+        temp
+      );
+      el.innerHTML = temp.innerHTML;
     });
 }

@@ -26,33 +26,12 @@ import {
   getDefaultEuiMarkdownProcessingPlugins,
 } from '@elastic/eui';
 import remarkFootnotes from 'remark-footnotes';
-import remarkGfm from 'remark-gfm';
-import remarkParse from 'remark-parse';
 import remarkSmartypants from 'remark-smartypants';
 import remarkNumberedFootnoteLabels from 'remark-numbered-footnote-labels';
 import rehypeRaw from 'rehype-raw';
-import rehypeStringify from 'rehype-stringify';
-import visit from 'unist-util-visit';
+import React from 'react';
 
 import { KatexRenderer, MathMarkdownParser } from './math';
-
-// One or more icons are passed in as an object of iconKey (string): IconComponent
-/* appendIconComponentCache({
- *   crossInACircleFilled: cross,
- *   controlsVertical: cv,
- *   copyClipboard: cc,
- *   eye: eyeo,
- *   eyeClosed: eyec,
- *   editorBold: bold,
- *   editorItalic: ital,
- *   editorUnderline: under,
- *   editorUnorderedList: ul,
- *   editorOrderedList: ol,
- *   quote: quote,
- *   editorCodeBlock: cb,
- *   editorLink: link,
- *   editorComment: comment,
- * }); */
 
 const parsingList = getDefaultEuiMarkdownParsingPlugins();
 parsingList.push([MathMarkdownParser, { singleDollar: true }]);
@@ -65,7 +44,6 @@ const processingList = getDefaultEuiMarkdownProcessingPlugins();
 processingList[1][1].components.checkboxplugin =
   processingList[1][1].components.checkboxPlugin;
 processingList[1][1].components.mathplugin = KatexRenderer;
-processingList[1][1].passNode = true;
 
 // replace <kbd> with <kbd><kbd>
 function doubleKbd(props) {
@@ -77,19 +55,12 @@ function doubleKbd(props) {
 }
 processingList[1][1].components.kbd = doubleKbd;
 
-processingList.splice(processingList.length - 1, 0, [
-  rehypeRaw,
-  { passThrough: ['mathPlugin', 'mathplugin', 'math'] },
-]);
-processingList[2][1];
+processingList.splice(processingList.length - 1, 0, [rehypeRaw]);
 // @ts-ignore
 // processingList.splice(2, 0, [rehypeStringify, { allowDangerousHtml: true }]);
 // @ts-ignore
 // console.debug('processingList 2', processingList);
 // console.debug('comps', processingList.reverse()[0][1].components);
-
-import { unified } from 'unified';
-import remarkRehype from 'remark-rehype';
 
 export default function TextPanel(props) {
   return (
@@ -110,8 +81,6 @@ export default function TextPanel(props) {
           <div className="eui-yScroll">
             <EuiMarkdownFormat
               parsingPluginList={parsingList}
-              /*
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              // @ts-ignore */
               processingPluginList={processingList}
               id="textContent"
               grow>
