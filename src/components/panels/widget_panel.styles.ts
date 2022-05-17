@@ -14,7 +14,7 @@ height: 100%;
 width: 100%;
 background-color: ${euiTheme.colors.lightestShade};
 border-radius: ${euiTheme.border.radius.medium};
- box-shadow: 0 ${euiTheme.size.xs} ${euiTheme.size.xs} ${transparentize(euiTheme.colors.shadow, 0.04)};
+box-shadow: 0 ${euiTheme.size.xs} ${euiTheme.size.xs} ${transparentize(euiTheme.colors.shadow, 0.04)};
 `
     }
 }

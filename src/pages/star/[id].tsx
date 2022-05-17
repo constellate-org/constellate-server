@@ -28,6 +28,10 @@ import ThemeSwitcher from '../../components/rho/theme_switcher';
 import { useEffect, useState } from 'react';
 import renderFootnoteBlock from '../../components/markdown/footnotes_collapse';
 
+import themes from '../../../public/constellate_themes/themes';
+
+const theme = themes[process.env.CONSTELLATE_THEME];
+
 function StarPage({ constellation }) {
   useEffect(renderFootnoteBlock);
   const router = useRouter();
@@ -145,8 +149,8 @@ function StarPage({ constellation }) {
               <EuiHeaderSection side="left">
                 <EuiHeaderSectionItem>{collapsibleNav}</EuiHeaderSectionItem>
                 <EuiHeaderSectionItem>
-                  <EuiHeaderLogo iconType="/pollardsrho.svg">
-                    {"Pollard's Rho"}
+                  <EuiHeaderLogo iconType={theme['site_logo']}>
+                    {theme['site_title']}
                   </EuiHeaderLogo>
                 </EuiHeaderSectionItem>
               </EuiHeaderSection>

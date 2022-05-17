@@ -20,7 +20,7 @@ html {
     font-family: inherit;
 }
 
-p code.euiCode {
+#textContent code.euiCode {
     font-size: 80%;
 }
 

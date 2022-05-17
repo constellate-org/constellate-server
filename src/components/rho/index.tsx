@@ -33,7 +33,7 @@ const Rho: FunctionComponent = ({ children }) => {
   return (
     <EuiProvider
       colorMode={colorMode as EuiThemeColorMode}
-      modify={theme['EUI']}
+      modify={theme['eui']}
       cache={emotionCache}>
       {children}
     </EuiProvider>

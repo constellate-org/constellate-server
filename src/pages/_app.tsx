@@ -24,11 +24,11 @@ const EuiApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       {/* You can override this in other pages - see index.tsx for an example */}
-      <title>{"Pollard's Rho"}</title>
+      <title>{theme['site_title']}</title>
     </Head>
     <Global styles={globalStyles} />
     <Global styles={footnotesStyles} />
-    <Global styles={theme['GLOBAL']} />
+    <Global styles={theme['global']} />
     <Theme>
       <Rho>
         <ThemedOverrides />
