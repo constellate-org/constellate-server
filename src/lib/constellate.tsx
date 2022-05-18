@@ -47,18 +47,28 @@ export type MarkdownCode = {
   lang: string;
 };
 
+export type MarkdownDataframe = {
+  kind: 'markdown_dataframe';
+  star_id: string;
+  markdown: string;
+  code: string;
+  df_json: Array<Record<string, unknown>>;
+};
+
 export type Star =
   | PureMarkdown
   | MarkdownMatplotlib
   | MarkdownLatex
   | MarkdownPanel
   | MarkdownPlotly
-  | MarkdownCode;
+  | MarkdownCode
+  | MarkdownDataframe;
 
 export type Constellation = {
   setup_matplotlib: Array<string>;
   setup_panel: Array<string>;
   setup_plotly: Array<string>;
+  setup_dataframe: Array<string>;
   stars: Array<Star>;
   breadcrumbs: Array<Array<number>>;
   title: string;

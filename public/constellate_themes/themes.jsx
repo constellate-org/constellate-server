@@ -16,11 +16,11 @@ const themes = {
     eui: {
       colors: {
         LIGHT: {
-          primary: '#006EBF',
-          accent: '#006F8B',
+          primary: '#003EBF',
+          accent: '#009ea3',
         },
         DARK: {
-          primary: '#00A2F2',
+          primary: '#0092F2',
           accent: '#00A5C1',
         },
       },
@@ -30,6 +30,7 @@ const themes = {
       },
     }
   },
+
   rho: {
     head: <>
       <link rel="stylesheet" href="https://use.typekit.net/ywt8hoe.css" />

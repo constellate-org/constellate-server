@@ -51,17 +51,17 @@ export default function renderFootnoteBlock() {
           ? Array.from(fnElement.parentElement.children).indexOf(fnElement) + 1
           : 0;
       const content = (
-        <div className="fn-tooltip-content">
+        <span className="fn-tooltip-content">
           <p dangerouslySetInnerHTML={{ __html: fnContent }} />
-        </div>
+        </span>
       );
 
       el.innerHTML = `${fnNum}`;
       const elHtml = <div dangerouslySetInnerHTML={{ __html: el.outerHTML }} />;
       ReactDOM.render(
-        <div>
+        <span>
           <EuiToolTip content={content}>{elHtml}</EuiToolTip>
-        </div>,
+        </span>,
         temp
       );
       console.log('Wrapping footnote reference...\n', temp);

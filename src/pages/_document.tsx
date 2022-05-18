@@ -2,7 +2,6 @@ import { ReactElement } from 'react';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { defaultTheme, Theme, themeConfig } from '../lib/theme';
 import themes from '../../public/constellate_themes/themes';
-import Script from 'next/script';
 
 const theme = themes[process.env.CONSTELLATE_THEME];
 
@@ -85,14 +84,6 @@ export default class MyDocument extends Document {
             href={isLocalDev ? favicon96Dev : favicon96Prod}
             sizes="96x96"
           />
-
-          <Script
-            type="module"
-            src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/copy-tex.mjs"
-            integrity="sha384-+gSYJ3yzY30+a6FGYJXOx9swmWs5oPKEi1AeCsAxsLexABlUXgHXkOkEZCj0Lz8U"
-            crossOrigin="anonymous"
-          />
-          {theme.HEAD}
         </Head>
         <body className="guideBody">
           <Main />

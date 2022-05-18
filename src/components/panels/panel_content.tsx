@@ -4,6 +4,8 @@ import ImagePanel from './image_panel';
 import LatexPanel from './latex_panel';
 import PanelPanel from './panel_panel';
 import PlotlyPanel from './plotly_panel';
+import DFPanel from './df_panel';
+import { to_strings } from './df_panel';
 
 type PanelContentProps = {
   star: Star;
@@ -39,5 +41,10 @@ export default function PanelContent(props: PanelContentProps) {
       );
     case 'markdown_plotly':
       return <PlotlyPanel fig={props.star.figure} code={props.star.plotly} />;
+
+    case 'markdown_dataframe':
+      return (
+        <DFPanel data={to_strings(props.star.df_json)} code={props.star.code} />
+      );
   }
 }

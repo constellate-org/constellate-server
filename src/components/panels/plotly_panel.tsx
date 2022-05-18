@@ -59,34 +59,15 @@ export default function PlotlyPanel(props) {
   ];
 
   return (
-    //       <Script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG" />
     <>
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"
-        integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB"
-        crossOrigin="anonymous"
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG" />
+      <EuiTabbedContent
+        tabs={tabs}
+        initialSelectedTab={tabs[0]}
+        className="eui-fullHeight"
+        id="panelTabs"
+        expand={true}
       />
-      <Script
-        defer
-        src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.js"
-        integrity="sha384-0fdwu/T/EQMsQlrHCCHoH10pkPLlKA1jL5dFyUOvB3lfeT2540/2g6YgSi2BL14p"
-        crossOrigin="anonymous"></Script>
-      <Script
-        defer
-        src="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/contrib/auto-render.min.js"
-        integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"
-        crossOrigin="anonymous"
-        onload="renderMathInElement(document.body);"></Script>
-      <>
-        <EuiTabbedContent
-          tabs={tabs}
-          initialSelectedTab={tabs[0]}
-          className="eui-fullHeight"
-          id="panelTabs"
-          expand={true}
-        />
-      </>
     </>
   );
 }
