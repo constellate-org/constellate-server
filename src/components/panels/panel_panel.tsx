@@ -13,6 +13,7 @@ type PanelProps = {
   uuid: string;
   url: string;
   theme: UseEuiTheme;
+  slug: string;
 };
 
 class PanelPanelInner extends React.Component<PanelProps> {
@@ -27,15 +28,14 @@ class PanelPanelInner extends React.Component<PanelProps> {
 
   loadPlot(force: boolean) {
     const { colorMode } = this.props.theme;
-    const plot = document.getElementById(
-      `imgEmbedContent${colorMode.toLocaleLowerCase()}`
-    );
+    const plot = document.getElementById(`imgEmbedContent${colorMode}`);
     if (!plot || plot.innerHTML === '') {
       const xhr = new XMLHttpRequest();
       xhr.responseType = 'text';
 
       const url = this.props.url;
-      const path = this.props.star.star_id;
+      const slug = this.props.slug;
+      const path = `${slug}_${this.props.star.star_id}`;
       console.log(`${url}/${path}`);
       console.log('color mode', colorMode);
       xhr.open(
@@ -81,6 +81,10 @@ class PanelPanelInner extends React.Component<PanelProps> {
             <div
               id={`imgEmbedContent${colorMode}`}
               css={styles.embedContent}></div>
+            <div
+              id={`imgEmbedContent${invColorMode}`}
+              css={styles.embedContent}
+              style={{ visibility: 'hidden' }}></div>
           </div>
         ),
       },
@@ -108,7 +112,6 @@ class PanelPanelInner extends React.Component<PanelProps> {
       console.log('3');
       if (embed) {
         console.log('4');
-        document.getElementById(this.props.uuid + invColorMode).remove();
         if (document.getElementById(`imgEmbedContent${invColorMode}`)) {
           document.getElementById(`imgEmbedContent${invColorMode}`).innerHTML =
             '';
@@ -132,8 +135,11 @@ class PanelPanelInner extends React.Component<PanelProps> {
             this.loadPlot(true);
             console.log('5');
           } else {
-            document.getElementById(`imgEmbedContent${colorMode}`).innerHTML =
-              '';
+            if (document.getElementById(`imgEmbedContent${invColorMode}`)) {
+              document.getElementById(
+                `imgEmbedContent${invColorMode}`
+              ).innerHTML = '';
+            }
             // document.getElementById(this.props.uuid + colorMode).remove();
           }
         }}

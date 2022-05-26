@@ -1,9 +1,15 @@
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
-import { EuiAccordion, EuiToolTip } from '@elastic/eui';
+import {
+  EuiAccordion,
+  EuiToolTip,
+  htmlIdGenerator,
+  useGeneratedHtmlId,
+} from '@elastic/eui';
 
 function FootnotesCollapse(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
+  const accordionId = htmlIdGenerator()();
   document
     .querySelectorAll('a.footnote-ref-processed')
     .forEach(function addLink(el) {
@@ -23,7 +29,7 @@ function FootnotesCollapse(props) {
   return (
     <div>
       <EuiAccordion
-        id="footnotes"
+        id={accordionId}
         buttonContent="Footnotes"
         forceState={isOpen ? 'open' : 'closed'}
         onToggle={() => setIsOpen(!isOpen)}>
@@ -62,19 +68,20 @@ export default function renderFootnoteBlock() {
         <span>
           <EuiToolTip content={content}>{elHtml}</EuiToolTip>
         </span>,
-        temp
+        temp,
+        () => {
+          console.log('Wrapping footnote reference...\n', temp);
+          el.replaceWith(temp);
+        }
       );
-      console.log('Wrapping footnote reference...\n', temp);
-      el.replaceWith(temp);
     });
   // render footnotes using collapse
   document
     .querySelectorAll('div.footnotes')
     .forEach(function repl(el: Element) {
       console.log('Wrapping footnotes...');
-      const temp = document.createElement('div');
-      el.classList.toggle('footnotes');
-      el.classList.toggle('footnotes-processed');
+      el.classList.remove('footnotes');
+      el.classList.add('footnotes-processed');
       const content = (
         <div
           dangerouslySetInnerHTML={{
@@ -82,10 +89,7 @@ export default function renderFootnoteBlock() {
           }}
         />
       );
-      ReactDOM.render(
-        <FootnotesCollapse inner={content} isOpen={false} />,
-        temp
-      );
-      el.innerHTML = temp.innerHTML;
+      el.innerHTML = '';
+      ReactDOM.render(<FootnotesCollapse inner={content} isOpen={false} />, el);
     });
 }

@@ -72,6 +72,7 @@ export type Constellation = {
   stars: Array<Star>;
   breadcrumbs: Array<Array<number>>;
   title: string;
+  slug: string;
   star_titles: Array<string>;
 };
 

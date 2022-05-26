@@ -34,6 +34,10 @@ import React from 'react';
 import { KatexRenderer, MathMarkdownParser } from './math';
 
 const parsingList = getDefaultEuiMarkdownParsingPlugins();
+
+// remove remark-breaks: this matches standard Markdown syntax
+parsingList.splice(3, 1);
+
 parsingList.push([MathMarkdownParser, { singleDollar: true }]);
 parsingList.push([remarkFootnotes, {}]);
 parsingList.push([remarkSmartypants, {}]);

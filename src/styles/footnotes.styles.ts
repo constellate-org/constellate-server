@@ -21,6 +21,9 @@ div.footnotes-processed, span.fn-tooltip-content {
     font-size: smaller;
 }
 
+div.footnotes-processed hr {
+    display: none;
+}
 `;
 
 export default footnotesStyles;

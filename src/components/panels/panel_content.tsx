@@ -12,6 +12,7 @@ type PanelContentProps = {
   panelUrl: string;
   isDark: boolean;
   uuid: string;
+  slug: string;
 };
 
 export default function PanelContent(props: PanelContentProps) {
@@ -20,7 +21,12 @@ export default function PanelContent(props: PanelContentProps) {
       return <></>;
     case 'markdown_panel':
       return (
-        <PanelPanel star={props.star} url={props.panelUrl} uuid={props.uuid} />
+        <PanelPanel
+          star={props.star}
+          url={props.panelUrl}
+          uuid={props.uuid}
+          slug={props.slug}
+        />
       );
     case 'markdown_code': {
       return (
