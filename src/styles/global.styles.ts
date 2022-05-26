@@ -140,7 +140,7 @@ padding: 1rem;
 }
 
 #textContent {
-    max-width: calc(40 * 1.15rem);
+    max-width: calc(65ch + 10px);
     margin-left: auto;
     margin-right: auto;
     padding-left: 2px;

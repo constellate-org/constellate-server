@@ -65,6 +65,7 @@ export default class MyDocument extends Document {
           <meta name="eui-styles-global" />
 
           {themeConfig.availableThemes.map(each => themeLink(each))}
+          {theme.head}
 
           <link
             rel="icon"
