@@ -24,7 +24,6 @@ import Head from 'next/head';
 import ThemeSwitcher from '../components/rho/theme_switcher';
 import Shortcuts from '../components/hotkeys';
 import indexStyles from './index.styles';
-import Gallery from 'react-photo-gallery';
 const theme = themes[process.env.CONSTELLATE_THEME];
 
 function findImage(constellation: Constellation, colorMode: String, styles) {
