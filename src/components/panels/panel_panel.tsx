@@ -34,8 +34,7 @@ class PanelPanelInner extends React.Component<PanelProps> {
       xhr.responseType = 'text';
 
       const url = this.props.url;
-      const slug = this.props.slug;
-      const path = `${slug}_${this.props.star.star_id}`;
+      const path = `${this.props.star.star_id}`;
       console.log(`${url}/${path}`);
       console.log('color mode', colorMode);
       xhr.open(
