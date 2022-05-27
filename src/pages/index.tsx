@@ -26,9 +26,9 @@ import Shortcuts from '../components/hotkeys';
 import indexStyles from './index.styles';
 const theme = themes[process.env.CONSTELLATE_THEME];
 
-function findImage(constellation: Constellation, colorMode: String, styles) {
+function findImage(constellation: Constellation, colorMode: string, styles) {
   let url = '';
-  let hasNoImg = constellation.stars.every(star => {
+  const hasNoImg = constellation.stars.every(star => {
     switch (star.kind) {
       case 'markdown_matplotlib': {
         if (colorMode.toLocaleLowerCase() === 'light') {
@@ -77,7 +77,7 @@ function ConstellationCard({ constellation, styles }) {
       image={findImage(constellation, colorMode, styles)}
       title={constellation.title}
       description=""
-      href={constellation.slug + '/0'}
+      href={`${constellation.slug}/0`}
       css={styles.cardCard}
     />
   );
@@ -90,7 +90,7 @@ function IndexPage({ constellations }) {
     return <h1>Loading...</h1>;
   }
 
-  const styles = indexStyles(useEuiTheme());
+  const styles = indexStyles({ euiTheme, colorMode });
 
   return (
     <>
