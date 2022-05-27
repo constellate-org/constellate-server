@@ -23,7 +23,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import ThemeSwitcher from '../components/rho/theme_switcher';
 import Shortcuts from '../components/hotkeys';
-import indexStyles from './index.styles';
+import indexStyles from '../styles/index.styles';
 const theme = themes[process.env.CONSTELLATE_THEME];
 
 function findImage(constellation: Constellation, colorMode: string, styles) {
