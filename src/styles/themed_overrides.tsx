@@ -34,6 +34,10 @@ export default function CustomStyling() {
   const styles = css`
         ${colors}
 
+    html {
+      font-feature-settings: ${t.font.featureSettings};
+    }
+
     kbd>kbd {
         border-radius: ${t.border.radius.small};
         padding: 0.2rem;
@@ -48,6 +52,10 @@ export default function CustomStyling() {
         border-color: ${t.colors.lightShade};
         font-family: ${theme.text_font || t.font.family};
         ${useEuiFontSize('l').fontSize}
+    }
+
+    #textContent h1, #textContent h2, #textContent h3, #textContent h4 {
+      font-family: ${t.font.family};
     }
         #nextBtn {
         background-color: ${t.colors.primary};

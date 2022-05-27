@@ -111,10 +111,14 @@ class ShortcutHandler extends React.Component<
 
     const handlers = {
       NEXT_PAGE: () => {
-        document.getElementById('nextBtn').click();
+        if (document.getElementById('nextBtn')) {
+          document.getElementById('nextBtn').click();
+        }
       },
       PREV_PAGE: () => {
-        document.getElementById('prevBtn').click();
+        if (document.getElementById('prevBtn')) {
+          document.getElementById('prevBtn').click();
+        }
       },
       TOGGLE_THEME: () => {
         document.getElementById('themeSwitcher').click();

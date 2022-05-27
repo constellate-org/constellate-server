@@ -109,6 +109,10 @@ body {
     border-radius: 6px;
 }
 
+img.cardImg {
+    filter: blur(3px);
+}
+
 #codePanel {
     width: 100%;
 padding: 1rem;

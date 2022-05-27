@@ -36,6 +36,7 @@ const themes = {
   rho: {
     head: <>
       <link rel="stylesheet" href="https://use.typekit.net/ywt8hoe.css" />
+      {/* <link rel="stylesheet" href="https://use.typekit.net/ush4rsn.css" /> */}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css" />
     </>,
     site_title: "Pollard's Rho",
@@ -60,6 +61,7 @@ const themes = {
       font: {
         family: "'myriad-pro', sans-serif",
         familyCode: "'Cascadia Code', monospace",
+        featureSettings: "'liga' 1, 'kern' 1, 'tnum' 1"
       },
     }
   }

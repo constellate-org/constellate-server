@@ -27,6 +27,10 @@ const nextConfig = {
 
   experimental: {
     esmExternals: false,
+    // for index page, so I can manipulate the images in CSS
+    images: {
+      layoutRaw: true
+    }
   },
 
   /**
@@ -54,7 +58,7 @@ const nextConfig = {
     PANEL_URL: 'http://localhost:5006',
     PLOTLY_LIGHT_TEMPLATE: 'none',
     PLOTLY_DARK_TEMPLATE: 'plotly_dark',
-    CONSTELLATE_THEME: 'default',
+    CONSTELLATE_THEME: 'rho',
   },
 
   /**

@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const footnotesStyles = css`
-    sup, sub {
+sup, sub {
     font-size: 0.7rem;
 }
 
