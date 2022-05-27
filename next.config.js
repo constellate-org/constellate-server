@@ -55,7 +55,7 @@ const nextConfig = {
   env: {
     PATH_PREFIX: pathPrefix,
     THEME_CONFIG: JSON.stringify(themeConfig),
-    PANEL_URL: 'http://localhost:5006',
+    PANEL_URL: 'https://constellate-docs.herokuapp.com',
     PLOTLY_LIGHT_TEMPLATE: 'none',
     PLOTLY_DARK_TEMPLATE: 'plotly_dark',
     CONSTELLATE_THEME: 'default',
