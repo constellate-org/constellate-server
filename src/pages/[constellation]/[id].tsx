@@ -226,7 +226,7 @@ export default StarPage;
 export async function getStaticPaths() {
   const paths = [];
   glob
-    .sync(path.join(process.cwd(), 'public/constellations/*.constellate.json'))
+    .sync(path.join(process.cwd(), 'public/constellations/*.constellate'))
     .forEach((fn: string) => {
       const data = JSON.parse(readFileSync(fn, 'utf8'));
       // @ts-ignore
@@ -257,7 +257,7 @@ export async function getStaticProps() {
 
   const constellations = {};
   glob
-    .sync(path.join(process.cwd(), 'public/constellations/*.constellate.json'))
+    .sync(path.join(process.cwd(), 'public/constellations/*.constellate'))
     .forEach((fn: string) => {
       const data = JSON.parse(readFileSync(fn, 'utf8'));
       // @ts-ignore
