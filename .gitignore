@@ -24,3 +24,6 @@ out
 tsconfig.tsbuildinfo
 
 .log
+
+# Constellations are generated files that aren't part of the site
+public/constellations/*
